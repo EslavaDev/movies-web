@@ -16,15 +16,9 @@
     height: 160px;
   }
 
-  .Media-content {
-
-
-  }
 
   .Media-image {
     object-fit: cover;
-    width: 260px;
-    height: 160px;
   }
   
   .Media-title {
