@@ -1,18 +1,13 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import './media.css';
+import { Card, CardImg, CardBody,
+    CardTitle, CardFooter, Button } from 'reactstrap';
 import PropTypes from 'prop-types';
-export default class Media extends Component {
+export default class Media extends PureComponent {
 
     state ={       
          author: this.props.author      
     }
-/*     constructor(props){
-        super(props)
-        this.state={
-            author: props.author
-        }
-        //this.handleClick = this.handleClick.bind(this)
-    } */
 
     handleClick=(e)=>{
         this.setState({
@@ -32,7 +27,17 @@ export default class Media extends Component {
             }
         }
         return(
-            <div className="Media" onClick={this.handleClick}>
+
+            <div className="Media">
+            <Card className="Media-cover">
+              <CardImg top width={260}height={160}src={this.props.cover} alt="Card image cap" />
+              <CardBody className="Media-content">
+                <CardTitle>{this.props.title}</CardTitle>
+                <Button>Button</Button>
+              </CardBody>
+              <CardFooter>{this.props.author}</CardFooter>
+            </Card>
+            {/*<div className="Media" onClick={this.handleClick}>
                 <div className="Media-cover">
                     <img 
                     className="Media-image"
@@ -42,11 +47,12 @@ export default class Media extends Component {
                     height={160}
                     />
                     <div className="Media-content">
-                        <h3 className="Media-title">{this.props.title}</h3>
+                        <h4 className="Media-title">{this.props.title}</h4>
                         <p className="Media-author">{this.props.author}</p>
                     </div>
                 </div>
-            </div>
+        </div>*/}
+          </div>
         );
     }
     

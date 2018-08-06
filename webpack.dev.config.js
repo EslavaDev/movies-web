@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   
   entry: {
-    video: path.resolve(__dirname, 'index.js'),
+    "home": path.resolve(__dirname, 'src/entries/home.js'),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -22,7 +22,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015', 'react', 'env', 'stage-2'],
+            presets: ['es2015', 'react', 'stage-2'],
           }
         },
       },
