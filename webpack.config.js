@@ -28,6 +28,7 @@ module.exports = (env) => {
     devServer: {
       port: 9000,
     },
+    devtool:'eval-source-map',
     module: {
       rules: [
         {
