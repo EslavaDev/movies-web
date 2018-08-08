@@ -8,11 +8,13 @@ import './playlist.css';
 function Playlist(props) {
     console.log(props.data)
     return (
-        <div>
+        <div className='Playlist'>
             {
                 props.playlist.map((interno) => {
                     return (
-                        <Media {...interno} key={interno.id} />
+                        <Media 
+                            handleClick={props.handleOpenModal}
+                            {...interno} key={interno.id} />
                     )
 
                 })

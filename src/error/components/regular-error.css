@@ -1,0 +1,36 @@
+
+
+.RegularError{
+    /*background-image: url("../../../images/covers/error.jpg") ;*/
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+.RegularError h1{
+    z-index: 2;
+    text-align: center;
+    color: aliceblue;
+}
+.RegularError p{
+    text-align: center;
+    padding: 2rem0;
+    color: aqua;
+}
+.RegularError a{
+    width: 304px;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    /* justify-content: center; */
+    text-align: center;
+    background: crimson;
+    color: white;
+    border-radius: 3px;
+    display: block;
+}

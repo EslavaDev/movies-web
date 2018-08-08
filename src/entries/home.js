@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import data from '../api.json';
 import Home from '../pages/containers/Home';
+import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 const homeContainer = document.getElementById('home-container');
 

@@ -4,6 +4,7 @@ const Modal = (props) => {
   return (
     <div className="Modal">
       {props.children}
+      <button onClick={props.handleClick}>cerrar</button>
     </div>
   )
 }

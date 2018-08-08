@@ -12,6 +12,7 @@
 
 .Media-cover {
   margin-top: 10px;
+
   transition: .3s;
   box-shadow: 0 0 5px rgba(0,0,0,.3);
   height: 350px;
