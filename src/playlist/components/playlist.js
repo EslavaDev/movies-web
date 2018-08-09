@@ -13,7 +13,7 @@ function Playlist(props) {
                 props.playlist.map((interno) => {
                     return (
                         <Media 
-                            handleClick={props.handleOpenModal}
+                            openModal={props.handleOpenModal}
                             {...interno} key={interno.id} />
                     )
 

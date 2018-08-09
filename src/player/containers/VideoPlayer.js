@@ -110,7 +110,7 @@ export default class VideoPlayer extends Component {
         </VideoPlayerControls>
         {this.state.loading &&
           <Spinner />}
-        <Title title="hola" />
+        <Title title={this.props.title} />
         <Video
           pause={this.state.pause}
           autoPlay={this.props.autoPlay}
@@ -118,7 +118,7 @@ export default class VideoPlayer extends Component {
           handleTimeUpdate={this.handleTimeUpdate}
           handleSeeked={this.handleSeeked}
           handleSeeking={this.handleSeeking}
-          src="http://download.blender.org/peach/bigbuckbunny_movies/BigBuckBunny_320x180.mp4"
+          src={this.props.src}
         />
       </VideoPlayerLayout>
     )

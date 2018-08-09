@@ -15,7 +15,7 @@
 
   transition: .3s;
   box-shadow: 0 0 5px rgba(0,0,0,.3);
-  height: 350px;
+  height: 315px;
 }
 
 .Media-image {
@@ -29,6 +29,7 @@
 }
 
 .Media-author {
+  color: black;
   font-size: 12px;
   margin: 5px 0 0 0;
 }

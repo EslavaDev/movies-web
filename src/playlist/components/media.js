@@ -8,12 +8,13 @@ export default class Media extends PureComponent {
     state ={       
          author: this.props.author      
     }
-/* 
+ 
     handleClick=(e)=>{
-        this.setState({
+        /*this.setState({
             author: "EslavaDev"
-        })
-    } */
+        })*/
+        this.props.openModal(this.props)
+    } 
     render(){
         const {author} = this.state
         const styles={
@@ -28,12 +29,12 @@ export default class Media extends PureComponent {
         }
         return(
 
-            <div className="Media" onClick={this.props.handleClick}>
+            <div className="Media" onClick={this.handleClick}>
             <Card className="Media-cover">
               <CardImg top width={260}height={160}src={this.props.cover} alt="Card image cap" />
               <CardBody className="Media-content">
                 <CardTitle className="Media-title">{this.props.title}</CardTitle>
-                <Button>Button</Button>
+
               </CardBody>
               <CardFooter className="Media-author">{this.props.author}</CardFooter>
             </Card>
