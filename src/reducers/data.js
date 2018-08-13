@@ -1,12 +1,12 @@
-import data from '../api.json';
+/*import data from '../api.json';
 
 const initialState = {
     data: {...data,
-        search: []
-    }
-}
+    },
+    search: []
+}*/
 
- const Data = (state = initialState, action) => {
+ const Data = (state, action) => {
   switch (action.type) {
 
   case 'SEARCH_VIDEO':{
@@ -14,11 +14,13 @@ const initialState = {
       
 
       const list = []
-      state.data.categories.map((category)=>{
-          return category.playlist.filter((item)=>{
-              return item.author.toLowerCase().includes(action.payload.query.toLowerCase()) && list.push(item) 
+      if(action.payload.query){
+          state.data.categories.map((category)=>{
+              return category.playlist.filter((item)=>{
+                  return item.author.toLowerCase().includes(action.payload.query.toLowerCase()) && list.push(item) 
+              })
           })
-      })
+      }
     return { ...state,
                 search:list
             }

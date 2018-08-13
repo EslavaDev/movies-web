@@ -11,7 +11,7 @@ module.exports = {
     filename: 'js/[name].js'
   },
   devServer: {
-    port: 9000,
+    port: 10000,
   },
   devtool:'eval-source-map',
   module: {
