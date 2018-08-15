@@ -5,22 +5,26 @@ import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
-import reducer from '../reducers/data';
-import data from '../schemas/index.js';
+import reducer from '../reducers/index';
+import {Map as map} from 'immutable'
 
 
-const initialState = {
+/*const initialState = {
     data: {
         //...data,
         entities: data.entities,
-        categories: data.result.categories
+        categories: data.result.categories,
+        search: []
     },
-    search: []
-}
+    modal:{
+        visibility: false,
+        mediaId: null,
+    }
+}*/
 
 const store = createStore(
     reducer,
-    initialState,
+    map(),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 

@@ -11,8 +11,8 @@ const Categories = (props) => {
         props.search.map(item =>{
           return (
             <Media 
-            key={item.id}
-              {...item}
+            key={item.get('id')}
+              {...item.toJS()}
             />)
         })
       }
@@ -21,8 +21,8 @@ const Categories = (props) => {
               return( 
                 <Category 
                   handleOpenModal={props.handleOpenModal}
-                  key={item.id} 
-                  {...item}
+                  key={item.get('id')}
+                  {...item.toJS()}
                 />
               )
           })
@@ -31,4 +31,4 @@ const Categories = (props) => {
   )
 }
 
-export default Categories
+export default Categories;
