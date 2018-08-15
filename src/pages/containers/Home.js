@@ -9,19 +9,28 @@ import VideoPlayer from '../../player/containers/VideoPlayer';
 import { connect } from 'react-redux';
 import {List as list} from 'immutable';
 class Home extends Component {
-    state = {
+/*     state = {
         modalVisible: false
-    }
+    } */
 
     handleCloseModal = (event) => {
-        this.setState({
+        /* this.setState({
             modalVisible: false,
+        }) */
+        this.props.dispatch({
+            type: 'CLOSE_MODAL'
         })
     }
-    handleOpenModal = (media) => {
-        this.setState({
+    handleOpenModal = (id) => {
+        /* this.setState({
             modalVisible: true,
             media
+        }) */
+        this.props.dispatch({
+            type: 'OPEN_MODAL',
+            payload:{
+                mediaId: id
+            }
         })
     }
 
@@ -35,15 +44,16 @@ class Home extends Component {
                         handleOpenModal={this.handleOpenModal}
                         search={this.props.search}
                     />
-                    {this.state.modalVisible &&
+                    {this.props.modal.get('visibility') &&
                         <ModalContainer>
                             <Modal
                                 handleClick={this.handleCloseModal}
                             >
                                 <VideoPlayer
                                     autoPlay
-                                    src={this.state.media.src}
-                                    title={this.state.media.title}
+                                    id={this.props.modal.get('mediaId')}
+                                    //src={this.state.media.src}
+                                    //title={this.state.media.title}
                                 />
                             </Modal>
                         </ModalContainer>
@@ -73,7 +83,8 @@ const mapStateToProps = (state, props) => {
 
     return{
         categories,
-        search : searchResults
+        search : searchResults,
+        modal: state.get('modal')
     }
 }
 

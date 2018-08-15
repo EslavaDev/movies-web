@@ -13,7 +13,7 @@ export default class Media extends PureComponent {
         /*this.setState({
             author: "EslavaDev"
         })*/
-        this.props.openModal(this.props)
+        this.props.openModal(this.props.id)
     } 
     render(){
         const {author} = this.state
