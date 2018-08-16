@@ -1,19 +1,15 @@
 import React, { Component } from 'react'
 import Search from '../components/search';
 import {connect} from 'react-redux';
+import { searchEntities, searchAsyncEntities } from '../../actions';
 class SearchContainer extends Component {
     state={
-        value:'Test'
+        value:'Luis Fonsi'
     }
     handleSubmit = event =>{
         event.preventDefault();
-        console.log(this.input.value)
-        this.props.dispatch({
-            type:'SEARCH_VIDEO',
-            payload:{
-                query:this.input.value
-            }
-        })
+        //console.log(this.input.value)
+        this.props.searchAsyncEntities(this.input.value)
         this.input.value = ''
     }
     setInputRef = element =>{
@@ -36,4 +32,9 @@ class SearchContainer extends Component {
   }
 }
 
-export default connect()(SearchContainer) 
+const mapDispatchToProps = {
+    searchEntities,
+    searchAsyncEntities
+};
+
+export default connect(null,mapDispatchToProps)(SearchContainer) 

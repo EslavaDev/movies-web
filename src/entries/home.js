@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import Home from '../pages/containers/Home';
 import './home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import reducer from '../reducers/index';
+import thunk from 'redux-thunk'
+import logger  from 'redux-logger';
+import {composeWithDevTools} from 'redux-devtools-extension';
 import {Map as map} from 'immutable'
 
 
@@ -22,10 +25,20 @@ import {Map as map} from 'immutable'
     }
 }*/
 
+const logger1 = ({dispatch, getState}) => next => action =>{
+    console.log(`estado anterior: `, getState().toJS())
+    console.log(`enviando accion: `, action)
+    const result = next(action)
+    console.log(`nuevo estado: `, getState().toJS())
+    return result;
+} 
 const store = createStore(
     reducer,
     map(),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    composeWithDevTools(
+        applyMiddleware(logger, logger1, thunk)
+    )
+    //window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 )
 
 const homeContainer = document.getElementById('home-container');

@@ -8,6 +8,10 @@ const Categories = (props) => {
     <div className="Categories">
       <Search />
       {
+        props.isLoading &&
+        <p style={{"color":"black"}}> buscando tus videos favoritos ...</p>
+      }
+      {
         props.search.map(item =>{
           return (
             <Media 

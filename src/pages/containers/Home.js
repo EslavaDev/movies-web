@@ -8,33 +8,26 @@ import HandleError from '../../error/containers/handle-error';
 import VideoPlayer from '../../player/containers/VideoPlayer';
 import { connect } from 'react-redux';
 import {List as list} from 'immutable';
+import {openModal, closeModal} from '../../actions';
+import {bindActionCreators} from 'redux'
 class Home extends Component {
 /*     state = {
         modalVisible: false
     } */
 
-    handleCloseModal = (event) => {
+    handleCloseModal = () => this.props.closeModal()
         /* this.setState({
             modalVisible: false,
         }) */
-        this.props.dispatch({
-            type: 'CLOSE_MODAL'
-        })
-    }
-    handleOpenModal = (id) => {
+        
+    handleOpenModal = (id) => this.props.openModal(id)
         /* this.setState({
             modalVisible: true,
             media
         }) */
-        this.props.dispatch({
-            type: 'OPEN_MODAL',
-            payload:{
-                mediaId: id
-            }
-        })
-    }
 
     render() {
+        console.log(this.props.isLoading)
         return (
             <HandleError>
                 <HomeLayout>
@@ -43,6 +36,7 @@ class Home extends Component {
                     <Categories categories={this.props.categories}
                         handleOpenModal={this.handleOpenModal}
                         search={this.props.search}
+                        isLoading={this.props.isLoading}
                     />
                     {this.props.modal.get('visibility') &&
                         <ModalContainer>
@@ -84,9 +78,14 @@ const mapStateToProps = (state, props) => {
     return{
         categories,
         search : searchResults,
-        modal: state.get('modal')
+        modal: state.get('modal'),
+        isLoading: state.get('isLoading').get('active')
     }
 }
 
+const mapDispatchToProps = {
+    openModal,
+	closeModal
+};
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
